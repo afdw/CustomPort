@@ -23,6 +23,8 @@ minecraft {
     runDir = "run"
 
     mappings = "snapshot_20170304"
+
+    clientJvmArgs += "-Dfml.coreMods.load=afdw.customport.LoadingPlugin"
 }
 
 dependencies {
