@@ -109,11 +109,12 @@ public class ClassTransformer implements IClassTransformer {
                                 "()Ljava/lang/String;",
                                 false
                             );
-                            mv.visitFieldInsn(
-                                Opcodes.PUTSTATIC,
-                                classHttpUtil,
-                                "port",
-                                "Ljava/lang/String;"
+                            mv.visitMethodInsn(
+                                Opcodes.INVOKESTATIC,
+                                "afdw/customport/CustomPort",
+                                "setPort",
+                                "(Ljava/lang/String;)V",
+                                false
                             );
                             mv.visitInsn(Opcodes.RETURN);
                             mv.visitMaxs(0, 0);
@@ -208,11 +209,12 @@ public class ClassTransformer implements IClassTransformer {
                                             false
                                         );
                                         mv.visitInsn(Opcodes.DUP);
-                                        mv.visitFieldInsn(
-                                            Opcodes.GETSTATIC,
-                                            classHttpUtil,
-                                            "port",
-                                            "Ljava/lang/String;"
+                                        mv.visitMethodInsn(
+                                            Opcodes.INVOKESTATIC,
+                                            "afdw/customport/CustomPort",
+                                            "getPort",
+                                            "()Ljava/lang/String;",
+                                            false
                                         );
                                         mv.visitMethodInsn(
                                             Opcodes.INVOKEVIRTUAL,
@@ -297,19 +299,6 @@ public class ClassTransformer implements IClassTransformer {
                 ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_MAXS | ClassWriter.COMPUTE_FRAMES);
                 new ClassReader(basicClass).accept(new ClassVisitor(Opcodes.ASM5, classWriter) {
                     @Override
-                    public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
-                        cv.visit(version, access, name, signature, superName, interfaces);
-
-                        visitField(
-                            Opcodes.ACC_PUBLIC + Opcodes.ACC_STATIC,
-                            "port",
-                            "Ljava/lang/String;",
-                            null,
-                            ""
-                        ).visitEnd();
-                    }
-
-                    @Override
                     public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
                         MethodVisitor methodVisitor = cv.visitMethod(access, name, desc, signature, exceptions);
 
@@ -328,11 +317,12 @@ public class ClassTransformer implements IClassTransformer {
                                         "java/lang/NumberFormatException"
                                     );
                                     mv.visitLabel(startLabel);
-                                    mv.visitFieldInsn(
-                                        Opcodes.GETSTATIC,
-                                        classHttpUtil,
-                                        "port",
-                                        "Ljava/lang/String;"
+                                    mv.visitMethodInsn(
+                                        Opcodes.INVOKESTATIC,
+                                        "afdw/customport/CustomPort",
+                                        "getPort",
+                                        "()Ljava/lang/String;",
+                                        false
                                     );
                                     mv.visitMethodInsn(
                                         Opcodes.INVOKESTATIC,

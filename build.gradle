@@ -43,5 +43,6 @@ processResources {
 }
 
 jar {
+    manifest.attributes FMLCorePluginContainsFMLMod: "true"
     manifest.attributes FMLCorePlugin: "afdw.customport.LoadingPlugin"
 }
