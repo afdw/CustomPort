@@ -294,7 +294,7 @@ public class ClassTransformer implements IClassTransformer {
             }
 
             if (name.equals(classHttpUtil.replace("/", "."))) {
-                ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_MAXS);
+                ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_MAXS | ClassWriter.COMPUTE_FRAMES);
                 new ClassReader(basicClass).accept(new ClassVisitor(Opcodes.ASM5, classWriter) {
                     @Override
                     public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
@@ -341,6 +341,12 @@ public class ClassTransformer implements IClassTransformer {
                                         "(Ljava/lang/String;)I",
                                         false
                                     );
+                                    mv.visitInsn(Opcodes.DUP);
+                                    mv.visitLdcInsn(1);
+                                    mv.visitJumpInsn(Opcodes.IF_ICMPLT, handlerLabel);
+                                    mv.visitInsn(Opcodes.DUP);
+                                    mv.visitLdcInsn(0xFFFF);
+                                    mv.visitJumpInsn(Opcodes.IF_ICMPGT, handlerLabel);
                                     mv.visitInsn(Opcodes.IRETURN);
                                     mv.visitLabel(endLabel);
                                     mv.visitLabel(handlerLabel);
