@@ -1,0 +1,16 @@
+[
+{
+  "modid": "customport",
+  "name": "CustomPort",
+  "description": "Mod which adds LAN server port select box.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["afdw"],
+  "credits": "McModder, for giving the idea",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
