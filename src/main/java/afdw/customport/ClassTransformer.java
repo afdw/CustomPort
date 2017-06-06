@@ -1,8 +1,6 @@
 package afdw.customport;
 
 import net.minecraft.launchwrapper.IClassTransformer;
-import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
-import net.minecraftforge.fml.relauncher.Side;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.objectweb.asm.*;
@@ -12,10 +10,6 @@ public class ClassTransformer implements IClassTransformer {
 
     @Override
     public byte[] transform(String name, String transformedName, byte[] basicClass) {
-        if (FMLLaunchHandler.side() != Side.CLIENT) {
-            return basicClass;
-        }
-
         for (boolean mcp : new boolean[] {false, true}) {
             String classGuiShareToLan = mcp ? "net/minecraft/client/gui/GuiShareToLan" : "bhp";
 

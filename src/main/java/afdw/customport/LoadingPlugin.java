@@ -1,6 +1,8 @@
 package afdw.customport;
 
+import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
+import net.minecraftforge.fml.relauncher.Side;
 
 import javax.annotation.Nullable;
 import java.util.Map;
@@ -9,7 +11,7 @@ import java.util.Map;
 public class LoadingPlugin implements IFMLLoadingPlugin {
     @Override
     public String[] getASMTransformerClass() {
-        return new String[] {ClassTransformer.class.getName()};
+        return FMLLaunchHandler.side() == Side.CLIENT ? new String[] {ClassTransformer.class.getName()} : new String[0];
     }
 
     @Override
