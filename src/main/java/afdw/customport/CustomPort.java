@@ -37,7 +37,7 @@ public class CustomPort {
     public static void setPort(String newValue) {
         port = newValue;
         try {
-            FileUtils.writeStringToFile(configFile, port);
+            FileUtils.writeStringToFile(configFile, port, StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
         }

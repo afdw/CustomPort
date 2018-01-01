@@ -12,16 +12,16 @@ public class ClassTransformer implements IClassTransformer {
     public byte[] transform(String name, String transformedName, byte[] basicClass) {
         boolean mcp = name.equals(transformedName);
 
-        String classGuiShareToLan = mcp ? "net/minecraft/client/gui/GuiShareToLan" : "bhp";
+        String classGuiShareToLan = mcp ? "net/minecraft/client/gui/GuiShareToLan" : "bll";
 
-        String classGuiTextField = mcp ? "net/minecraft/client/gui/GuiTextField" : "bfq";
+        String classGuiTextField = mcp ? "net/minecraft/client/gui/GuiTextField" : "bje";
         String classGuiTextFieldMethodTextboxKeyTyped = mcp ? "textboxKeyTyped" : "a";
         String classGuiTextFieldMethodGetText = mcp ? "getText" : "b";
         String classGuiTextFieldMethodSetText = mcp ? "setText" : "a";
         String classGuiTextFieldMethodMouseClicked = mcp ? "mouseClicked" : "a";
         String classGuiTextFieldMethodDrawTextBox = mcp ? "drawTextBox" : "g";
 
-        String classGuiScreen = mcp ? "net/minecraft/client/gui/GuiScreen" : "bho";
+        String classGuiScreen = mcp ? "net/minecraft/client/gui/GuiScreen" : "blk";
         String classGuiScreenFieldFontRenderer = mcp ? "fontRenderer" : "q";
         String classGuiScreenFieldWidth = mcp ? "width" : "l";
         String classGuiScreenMethodMouseClicked = mcp ? "mouseClicked" : "a";
@@ -29,12 +29,12 @@ public class ClassTransformer implements IClassTransformer {
         String classGuiScreenMethodInitGui = mcp ? "initGui" : "b";
         String classGuiScreenMethodDrawScreen = mcp ? "drawScreen" : "a";
 
-        String classHttpUtil = mcp ? "net/minecraft/util/HttpUtil" : "ol";
+        String classHttpUtil = mcp ? "net/minecraft/util/HttpUtil" : "rd";
         String classHttpUtilMethodGetSuitableLanPort = mcp ? "getSuitableLanPort" : "a";
 
-        String classFontRenderer = mcp ? "net/minecraft/client/gui/FontRenderer" : "bfg";
+        String classFontRenderer = mcp ? "net/minecraft/client/gui/FontRenderer" : "bip";
 
-        String classGui = mcp ? "net/minecraft/client/gui/Gui" : "bfi";
+        String classGui = mcp ? "net/minecraft/client/gui/Gui" : "bir";
         String classGuiMethodDrawCenteredString = mcp ? "drawCenteredString" : "a";
 
         if (name.equals(classGuiShareToLan.replace("/", "."))) {
@@ -150,7 +150,7 @@ public class ClassTransformer implements IClassTransformer {
                             Opcodes.INVOKEVIRTUAL,
                             classGuiTextField,
                             classGuiTextFieldMethodMouseClicked,
-                            "(III)V",
+                            "(III)Z",
                             false
                         );
                         mv.visitInsn(Opcodes.RETURN);
