@@ -2,7 +2,7 @@
 {
   "modid": "customport",
   "name": "CustomPort",
-  "description": "Mod which adds LAN server port select box.",
+  "description": "Mod that adds LAN server port select box.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
