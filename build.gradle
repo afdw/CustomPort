@@ -10,7 +10,7 @@ buildscript {
 apply plugin: "net.minecraftforge.gradle.forge"
 
 version = "1.0"
-group = "customport"
+group = "afdw.customport"
 archivesBaseName = "customport"
 
 sourceCompatibility = targetCompatibility = "1.8"
