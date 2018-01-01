@@ -45,6 +45,8 @@ processResources {
 }
 
 jar {
+    appendix = project.minecraft.version as String
     manifest.attributes FMLCorePluginContainsFMLMod: "true"
     manifest.attributes FMLCorePlugin: "afdw.customport.LoadingPlugin"
 }
+sourceJar.enabled = false
