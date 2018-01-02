@@ -25,6 +25,8 @@ minecraft {
     mappings = "snapshot_20171003"
 
     clientJvmArgs += "-Dfml.coreMods.load=afdw.customport.LoadingPlugin"
+
+    makeObfSourceJar = false
 }
 
 dependencies {
@@ -49,4 +51,3 @@ jar {
     manifest.attributes FMLCorePluginContainsFMLMod: "true"
     manifest.attributes FMLCorePlugin: "afdw.customport.LoadingPlugin"
 }
-sourceJar.enabled = false
